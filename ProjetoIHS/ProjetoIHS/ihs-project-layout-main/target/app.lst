@@ -1,0 +1,459 @@
+
+target/release/app: formato do arquivo elf64-x86-64
+
+Seções:
+Idx Name          Tam.      VMA               LMA               File off  Algn
+  0 .interp       0000001c  0000000000000318  0000000000000318  00000318  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .note.gnu.property 00000030  0000000000000338  0000000000000338  00000338  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .note.gnu.build-id 00000024  0000000000000368  0000000000000368  00000368  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .note.ABI-tag 00000020  000000000000038c  000000000000038c  0000038c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .gnu.hash     00000028  00000000000003b0  00000000000003b0  000003b0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .dynsym       00000168  00000000000003d8  00000000000003d8  000003d8  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .dynstr       000000ed  0000000000000540  0000000000000540  00000540  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  7 .gnu.version  0000001e  000000000000062e  000000000000062e  0000062e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .gnu.version_r 00000050  0000000000000650  0000000000000650  00000650  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  9 .rela.dyn     000000d8  00000000000006a0  00000000000006a0  000006a0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .rela.plt     000000c0  0000000000000778  0000000000000778  00000778  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 11 .init         0000001b  0000000000001000  0000000000001000  00001000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .plt          00000090  0000000000001020  0000000000001020  00001020  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .plt.got      00000010  00000000000010b0  00000000000010b0  000010b0  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .plt.sec      00000080  00000000000010c0  00000000000010c0  000010c0  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text         000002c9  0000000000001140  0000000000001140  00001140  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .fini         0000000d  000000000000140c  000000000000140c  0000140c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .rodata       0000005e  0000000000002000  0000000000002000  00002000  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 18 .eh_frame_hdr 00000034  0000000000002060  0000000000002060  00002060  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 19 .eh_frame     000000c8  0000000000002098  0000000000002098  00002098  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 20 .init_array   00000008  0000000000003d80  0000000000003d80  00002d80  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 21 .fini_array   00000008  0000000000003d88  0000000000003d88  00002d88  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 22 .dynamic      000001f0  0000000000003d90  0000000000003d90  00002d90  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 23 .got          00000080  0000000000003f80  0000000000003f80  00002f80  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 24 .data         00000010  0000000000004000  0000000000004000  00003000  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 25 .bss          00000010  0000000000004020  0000000000004020  00003010  2**5
+                  ALLOC
+ 26 .comment      0000002b  0000000000000000  0000000000000000  00003010  2**0
+                  CONTENTS, READONLY
+ 27 .debug_aranges 00000030  0000000000000000  0000000000000000  0000303b  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 28 .debug_info   0000114d  0000000000000000  0000000000000000  0000306b  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 29 .debug_abbrev 00000336  0000000000000000  0000000000000000  000041b8  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 30 .debug_line   00000297  0000000000000000  0000000000000000  000044ee  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 31 .debug_str    000004fa  0000000000000000  0000000000000000  00004785  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 32 .debug_line_str 000001f9  0000000000000000  0000000000000000  00004c7f  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 33 .debug_loclists 00000234  0000000000000000  0000000000000000  00004e78  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 34 .debug_rnglists 00000048  0000000000000000  0000000000000000  000050ac  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+
+Desmontagem da seção .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 d9 2f 00 00 	mov    0x2fd9(%rip),%rax        # 3fe8 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Desmontagem da seção .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 62 2f 00 00    	push   0x2f62(%rip)        # 3f88 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 64 2f 00 00    	jmp    *0x2f64(%rip)        # 3f90 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   $0x0
+    1039:	e9 e2 ff ff ff       	jmp    1020 <_init+0x20>
+    103e:	66 90                	xchg   %ax,%ax
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	68 01 00 00 00       	push   $0x1
+    1049:	e9 d2 ff ff ff       	jmp    1020 <_init+0x20>
+    104e:	66 90                	xchg   %ax,%ax
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	68 02 00 00 00       	push   $0x2
+    1059:	e9 c2 ff ff ff       	jmp    1020 <_init+0x20>
+    105e:	66 90                	xchg   %ax,%ax
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	68 03 00 00 00       	push   $0x3
+    1069:	e9 b2 ff ff ff       	jmp    1020 <_init+0x20>
+    106e:	66 90                	xchg   %ax,%ax
+    1070:	f3 0f 1e fa          	endbr64
+    1074:	68 04 00 00 00       	push   $0x4
+    1079:	e9 a2 ff ff ff       	jmp    1020 <_init+0x20>
+    107e:	66 90                	xchg   %ax,%ax
+    1080:	f3 0f 1e fa          	endbr64
+    1084:	68 05 00 00 00       	push   $0x5
+    1089:	e9 92 ff ff ff       	jmp    1020 <_init+0x20>
+    108e:	66 90                	xchg   %ax,%ax
+    1090:	f3 0f 1e fa          	endbr64
+    1094:	68 06 00 00 00       	push   $0x6
+    1099:	e9 82 ff ff ff       	jmp    1020 <_init+0x20>
+    109e:	66 90                	xchg   %ax,%ax
+    10a0:	f3 0f 1e fa          	endbr64
+    10a4:	68 07 00 00 00       	push   $0x7
+    10a9:	e9 72 ff ff ff       	jmp    1020 <_init+0x20>
+    10ae:	66 90                	xchg   %ax,%ax
+
+Desmontagem da seção .plt.got:
+
+00000000000010b0 <__cxa_finalize@plt>:
+    10b0:	f3 0f 1e fa          	endbr64
+    10b4:	ff 25 3e 2f 00 00    	jmp    *0x2f3e(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    10ba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Desmontagem da seção .plt.sec:
+
+00000000000010c0 <write@plt>:
+    10c0:	f3 0f 1e fa          	endbr64
+    10c4:	ff 25 ce 2e 00 00    	jmp    *0x2ece(%rip)        # 3f98 <write@GLIBC_2.2.5>
+    10ca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000000010d0 <__stack_chk_fail@plt>:
+    10d0:	f3 0f 1e fa          	endbr64
+    10d4:	ff 25 c6 2e 00 00    	jmp    *0x2ec6(%rip)        # 3fa0 <__stack_chk_fail@GLIBC_2.4>
+    10da:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000000010e0 <ioctl@plt>:
+    10e0:	f3 0f 1e fa          	endbr64
+    10e4:	ff 25 be 2e 00 00    	jmp    *0x2ebe(%rip)        # 3fa8 <ioctl@GLIBC_2.2.5>
+    10ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000000010f0 <close@plt>:
+    10f0:	f3 0f 1e fa          	endbr64
+    10f4:	ff 25 b6 2e 00 00    	jmp    *0x2eb6(%rip)        # 3fb0 <close@GLIBC_2.2.5>
+    10fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001100 <read@plt>:
+    1100:	f3 0f 1e fa          	endbr64
+    1104:	ff 25 ae 2e 00 00    	jmp    *0x2eae(%rip)        # 3fb8 <read@GLIBC_2.2.5>
+    110a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001110 <__printf_chk@plt>:
+    1110:	f3 0f 1e fa          	endbr64
+    1114:	ff 25 a6 2e 00 00    	jmp    *0x2ea6(%rip)        # 3fc0 <__printf_chk@GLIBC_2.3.4>
+    111a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001120 <open@plt>:
+    1120:	f3 0f 1e fa          	endbr64
+    1124:	ff 25 9e 2e 00 00    	jmp    *0x2e9e(%rip)        # 3fc8 <open@GLIBC_2.2.5>
+    112a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001130 <__fprintf_chk@plt>:
+    1130:	f3 0f 1e fa          	endbr64
+    1134:	ff 25 96 2e 00 00    	jmp    *0x2e96(%rip)        # 3fd0 <__fprintf_chk@GLIBC_2.3.4>
+    113a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Desmontagem da seção .text:
+
+0000000000001140 <main>:
+
+// ioctl commands defined for the pci driver header
+#include "ioctl_cmds.h"
+
+int main(int argc, char** argv)
+{
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	41 55                	push   %r13
+    1146:	41 54                	push   %r12
+    1148:	55                   	push   %rbp
+    1149:	48 89 f5             	mov    %rsi,%rbp
+    114c:	53                   	push   %rbx
+    114d:	48 83 ec 18          	sub    $0x18,%rsp
+    1151:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    1158:	00 00 
+    115a:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+    115f:	31 c0                	xor    %eax,%eax
+	int fd, retval;
+
+	if (argc < 2) {
+    1161:	83 ff 01             	cmp    $0x1,%edi
+    1164:	0f 8e 71 01 00 00    	jle    12db <main+0x19b>
+      if (__OPEN_NEEDS_MODE (__oflag) && __va_arg_pack_len () < 1)
+	{
+	  __open_missing_mode ();
+	  return __open_2 (__path, __oflag);
+	}
+      return __open_alias (__path, __oflag, __va_arg_pack ());
+    116a:	48 8b 7e 08          	mov    0x8(%rsi),%rdi
+    116e:	31 c0                	xor    %eax,%eax
+    1170:	be 02 00 00 00       	mov    $0x2,%esi
+    1175:	e8 a6 ff ff ff       	call   1120 <open@plt>
+    117a:	89 c3                	mov    %eax,%ebx
+		printf("Syntax: %s <device file path>\n", argv[0]);
+		return -EINVAL;
+	}
+
+	if ((fd = open(argv[1], O_RDWR)) < 0) {
+    117c:	85 c0                	test   %eax,%eax
+    117e:	0f 88 72 01 00 00    	js     12f6 <main+0x1b6>
+# include <bits/unistd-decl.h>
+
+__fortify_function __wur ssize_t
+read (int __fd, void *__buf, size_t __nbytes)
+{
+  return __glibc_fortify (read, __nbytes, sizeof (char),
+    1184:	48 8d 6c 24 04       	lea    0x4(%rsp),%rbp
+		return -EBUSY;
+	}
+
+	unsigned int data = 0x40404079;
+
+	ioctl(fd, RD_SWITCHES);
+    1189:	89 c7                	mov    %eax,%edi
+    118b:	be 61 61 00 00       	mov    $0x6161,%esi
+    1190:	31 c0                	xor    %eax,%eax
+	unsigned int data = 0x40404079;
+    1192:	c7 44 24 04 79 40 40 	movl   $0x40404079,0x4(%rsp)
+    1199:	40 
+}
+
+__fortify_function int
+printf (const char *__restrict __fmt, ...)
+{
+  return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+    119a:	4c 8d 2d 9d 0e 00 00 	lea    0xe9d(%rip),%r13        # 203e <_IO_stdin_used+0x3e>
+    11a1:	4c 8d 25 a6 0e 00 00 	lea    0xea6(%rip),%r12        # 204e <_IO_stdin_used+0x4e>
+	ioctl(fd, RD_SWITCHES);
+    11a8:	e8 33 ff ff ff       	call   10e0 <ioctl@plt>
+    11ad:	ba 04 00 00 00       	mov    $0x4,%edx
+    11b2:	48 89 ee             	mov    %rbp,%rsi
+    11b5:	89 df                	mov    %ebx,%edi
+    11b7:	e8 44 ff ff ff       	call   1100 <read@plt>
+    11bc:	8b 54 24 04          	mov    0x4(%rsp),%edx
+    11c0:	4c 89 ee             	mov    %r13,%rsi
+    11c3:	31 c0                	xor    %eax,%eax
+    11c5:	bf 02 00 00 00       	mov    $0x2,%edi
+    11ca:	e8 41 ff ff ff       	call   1110 <__printf_chk@plt>
+	read(fd, &data, sizeof(data));
+	printf("new data: 0x%X\n", data);
+
+       	ioctl(fd, WR_R_DISPLAY);
+    11cf:	be 64 61 00 00       	mov    $0x6164,%esi
+    11d4:	89 df                	mov    %ebx,%edi
+    11d6:	31 c0                	xor    %eax,%eax
+    11d8:	e8 03 ff ff ff       	call   10e0 <ioctl@plt>
+        retval= write (fd, &data, sizeof(data));
+    11dd:	ba 04 00 00 00       	mov    $0x4,%edx
+    11e2:	48 89 ee             	mov    %rbp,%rsi
+    11e5:	89 df                	mov    %ebx,%edi
+    11e7:	e8 d4 fe ff ff       	call   10c0 <write@plt>
+    11ec:	4c 89 e6             	mov    %r12,%rsi
+    11ef:	bf 02 00 00 00       	mov    $0x2,%edi
+    11f4:	89 c2                	mov    %eax,%edx
+    11f6:	31 c0                	xor    %eax,%eax
+    11f8:	e8 13 ff ff ff       	call   1110 <__printf_chk@plt>
+        printf("wrote %d bytes\n", retval);
+	
+ 	ioctl(fd, WR_L_DISPLAY);
+    11fd:	be 63 61 00 00       	mov    $0x6163,%esi
+    1202:	89 df                	mov    %ebx,%edi
+    1204:	31 c0                	xor    %eax,%eax
+    1206:	e8 d5 fe ff ff       	call   10e0 <ioctl@plt>
+        retval = write (fd, &data, sizeof(data));
+    120b:	ba 04 00 00 00       	mov    $0x4,%edx
+    1210:	48 89 ee             	mov    %rbp,%rsi
+    1213:	89 df                	mov    %ebx,%edi
+    1215:	e8 a6 fe ff ff       	call   10c0 <write@plt>
+    121a:	4c 89 e6             	mov    %r12,%rsi
+    121d:	bf 02 00 00 00       	mov    $0x2,%edi
+    1222:	89 c2                	mov    %eax,%edx
+    1224:	31 c0                	xor    %eax,%eax
+    1226:	e8 e5 fe ff ff       	call   1110 <__printf_chk@plt>
+        printf("wrote %d bytes\n", retval);	
+
+	ioctl(fd, WR_RED_LEDS);
+    122b:	be 65 61 00 00       	mov    $0x6165,%esi
+    1230:	89 df                	mov    %ebx,%edi
+    1232:	31 c0                	xor    %eax,%eax
+    1234:	e8 a7 fe ff ff       	call   10e0 <ioctl@plt>
+	retval = write(fd, &data, sizeof(data));
+    1239:	ba 04 00 00 00       	mov    $0x4,%edx
+    123e:	48 89 ee             	mov    %rbp,%rsi
+    1241:	89 df                	mov    %ebx,%edi
+    1243:	e8 78 fe ff ff       	call   10c0 <write@plt>
+    1248:	4c 89 e6             	mov    %r12,%rsi
+    124b:	bf 02 00 00 00       	mov    $0x2,%edi
+    1250:	89 c2                	mov    %eax,%edx
+    1252:	31 c0                	xor    %eax,%eax
+    1254:	e8 b7 fe ff ff       	call   1110 <__printf_chk@plt>
+	printf("wrote %d bytes\n", retval);
+	
+	ioctl(fd, WR_GREEN_LEDS);
+    1259:	be 66 61 00 00       	mov    $0x6166,%esi
+    125e:	89 df                	mov    %ebx,%edi
+    1260:	31 c0                	xor    %eax,%eax
+    1262:	e8 79 fe ff ff       	call   10e0 <ioctl@plt>
+	retval = write(fd, &data, sizeof(data));
+    1267:	ba 04 00 00 00       	mov    $0x4,%edx
+    126c:	48 89 ee             	mov    %rbp,%rsi
+    126f:	89 df                	mov    %ebx,%edi
+    1271:	e8 4a fe ff ff       	call   10c0 <write@plt>
+    1276:	4c 89 e6             	mov    %r12,%rsi
+    1279:	bf 02 00 00 00       	mov    $0x2,%edi
+    127e:	89 c2                	mov    %eax,%edx
+    1280:	31 c0                	xor    %eax,%eax
+    1282:	e8 89 fe ff ff       	call   1110 <__printf_chk@plt>
+	printf("wrote %d bytes\n", retval);
+
+	ioctl(fd, RD_PBUTTONS);
+    1287:	be 62 61 00 00       	mov    $0x6162,%esi
+    128c:	89 df                	mov    %ebx,%edi
+    128e:	31 c0                	xor    %eax,%eax
+    1290:	e8 4b fe ff ff       	call   10e0 <ioctl@plt>
+    1295:	ba 04 00 00 00       	mov    $0x4,%edx
+    129a:	48 89 ee             	mov    %rbp,%rsi
+    129d:	89 df                	mov    %ebx,%edi
+    129f:	e8 5c fe ff ff       	call   1100 <read@plt>
+    12a4:	8b 54 24 04          	mov    0x4(%rsp),%edx
+    12a8:	4c 89 ee             	mov    %r13,%rsi
+    12ab:	31 c0                	xor    %eax,%eax
+    12ad:	bf 02 00 00 00       	mov    $0x2,%edi
+    12b2:	e8 59 fe ff ff       	call   1110 <__printf_chk@plt>
+	read(fd, &data, sizeof(data));
+	printf("new data: 0x%X\n", data);	
+
+	close(fd);
+    12b7:	89 df                	mov    %ebx,%edi
+    12b9:	e8 32 fe ff ff       	call   10f0 <close@plt>
+	return 0;
+    12be:	31 c0                	xor    %eax,%eax
+}
+    12c0:	48 8b 54 24 08       	mov    0x8(%rsp),%rdx
+    12c5:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+    12cc:	00 00 
+    12ce:	75 4b                	jne    131b <main+0x1db>
+    12d0:	48 83 c4 18          	add    $0x18,%rsp
+    12d4:	5b                   	pop    %rbx
+    12d5:	5d                   	pop    %rbp
+    12d6:	41 5c                	pop    %r12
+    12d8:	41 5d                	pop    %r13
+    12da:	c3                   	ret
+    12db:	48 8b 16             	mov    (%rsi),%rdx
+    12de:	bf 02 00 00 00       	mov    $0x2,%edi
+    12e3:	48 8d 35 1e 0d 00 00 	lea    0xd1e(%rip),%rsi        # 2008 <_IO_stdin_used+0x8>
+    12ea:	e8 21 fe ff ff       	call   1110 <__printf_chk@plt>
+		return -EINVAL;
+    12ef:	b8 ea ff ff ff       	mov    $0xffffffea,%eax
+    12f4:	eb ca                	jmp    12c0 <main+0x180>
+  return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+    12f6:	48 8b 4d 08          	mov    0x8(%rbp),%rcx
+    12fa:	48 8b 3d 1f 2d 00 00 	mov    0x2d1f(%rip),%rdi        # 4020 <stderr@GLIBC_2.2.5>
+    1301:	48 8d 15 1f 0d 00 00 	lea    0xd1f(%rip),%rdx        # 2027 <_IO_stdin_used+0x27>
+    1308:	31 c0                	xor    %eax,%eax
+    130a:	be 02 00 00 00       	mov    $0x2,%esi
+    130f:	e8 1c fe ff ff       	call   1130 <__fprintf_chk@plt>
+		return -EBUSY;
+    1314:	b8 f0 ff ff ff       	mov    $0xfffffff0,%eax
+    1319:	eb a5                	jmp    12c0 <main+0x180>
+}
+    131b:	e8 b0 fd ff ff       	call   10d0 <__stack_chk_fail@plt>
+
+0000000000001320 <_start>:
+    1320:	f3 0f 1e fa          	endbr64
+    1324:	31 ed                	xor    %ebp,%ebp
+    1326:	49 89 d1             	mov    %rdx,%r9
+    1329:	5e                   	pop    %rsi
+    132a:	48 89 e2             	mov    %rsp,%rdx
+    132d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    1331:	50                   	push   %rax
+    1332:	54                   	push   %rsp
+    1333:	45 31 c0             	xor    %r8d,%r8d
+    1336:	31 c9                	xor    %ecx,%ecx
+    1338:	48 8d 3d 01 fe ff ff 	lea    -0x1ff(%rip),%rdi        # 1140 <main>
+    133f:	ff 15 93 2c 00 00    	call   *0x2c93(%rip)        # 3fd8 <__libc_start_main@GLIBC_2.34>
+    1345:	f4                   	hlt
+    1346:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    134d:	00 00 00 
+
+0000000000001350 <deregister_tm_clones>:
+    1350:	48 8d 3d b9 2c 00 00 	lea    0x2cb9(%rip),%rdi        # 4010 <__TMC_END__>
+    1357:	48 8d 05 b2 2c 00 00 	lea    0x2cb2(%rip),%rax        # 4010 <__TMC_END__>
+    135e:	48 39 f8             	cmp    %rdi,%rax
+    1361:	74 15                	je     1378 <deregister_tm_clones+0x28>
+    1363:	48 8b 05 76 2c 00 00 	mov    0x2c76(%rip),%rax        # 3fe0 <_ITM_deregisterTMCloneTable@Base>
+    136a:	48 85 c0             	test   %rax,%rax
+    136d:	74 09                	je     1378 <deregister_tm_clones+0x28>
+    136f:	ff e0                	jmp    *%rax
+    1371:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1378:	c3                   	ret
+    1379:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001380 <register_tm_clones>:
+    1380:	48 8d 3d 89 2c 00 00 	lea    0x2c89(%rip),%rdi        # 4010 <__TMC_END__>
+    1387:	48 8d 35 82 2c 00 00 	lea    0x2c82(%rip),%rsi        # 4010 <__TMC_END__>
+    138e:	48 29 fe             	sub    %rdi,%rsi
+    1391:	48 89 f0             	mov    %rsi,%rax
+    1394:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    1398:	48 c1 f8 03          	sar    $0x3,%rax
+    139c:	48 01 c6             	add    %rax,%rsi
+    139f:	48 d1 fe             	sar    $1,%rsi
+    13a2:	74 14                	je     13b8 <register_tm_clones+0x38>
+    13a4:	48 8b 05 45 2c 00 00 	mov    0x2c45(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable@Base>
+    13ab:	48 85 c0             	test   %rax,%rax
+    13ae:	74 08                	je     13b8 <register_tm_clones+0x38>
+    13b0:	ff e0                	jmp    *%rax
+    13b2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    13b8:	c3                   	ret
+    13b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000013c0 <__do_global_dtors_aux>:
+    13c0:	f3 0f 1e fa          	endbr64
+    13c4:	80 3d 5d 2c 00 00 00 	cmpb   $0x0,0x2c5d(%rip)        # 4028 <completed.0>
+    13cb:	75 2b                	jne    13f8 <__do_global_dtors_aux+0x38>
+    13cd:	55                   	push   %rbp
+    13ce:	48 83 3d 22 2c 00 00 	cmpq   $0x0,0x2c22(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    13d5:	00 
+    13d6:	48 89 e5             	mov    %rsp,%rbp
+    13d9:	74 0c                	je     13e7 <__do_global_dtors_aux+0x27>
+    13db:	48 8b 3d 26 2c 00 00 	mov    0x2c26(%rip),%rdi        # 4008 <__dso_handle>
+    13e2:	e8 c9 fc ff ff       	call   10b0 <__cxa_finalize@plt>
+    13e7:	e8 64 ff ff ff       	call   1350 <deregister_tm_clones>
+    13ec:	c6 05 35 2c 00 00 01 	movb   $0x1,0x2c35(%rip)        # 4028 <completed.0>
+    13f3:	5d                   	pop    %rbp
+    13f4:	c3                   	ret
+    13f5:	0f 1f 00             	nopl   (%rax)
+    13f8:	c3                   	ret
+    13f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001400 <frame_dummy>:
+    1400:	f3 0f 1e fa          	endbr64
+    1404:	e9 77 ff ff ff       	jmp    1380 <register_tm_clones>
+
+Desmontagem da seção .fini:
+
+000000000000140c <_fini>:
+    140c:	f3 0f 1e fa          	endbr64
+    1410:	48 83 ec 08          	sub    $0x8,%rsp
+    1414:	48 83 c4 08          	add    $0x8,%rsp
+    1418:	c3                   	ret
